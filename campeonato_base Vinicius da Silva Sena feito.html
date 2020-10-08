@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<head>
+
+    <title>Exercícios</title>
+
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <script>
+        let times = [{
+            nome: "Liverpool",
+            vitorias: 23,
+            empates: 7,
+            derrotas:0,
+            golsproprio:70,
+            golscontra:52
+        }, {
+            nome: "City",
+            vitorias: 24,
+            empates: 2,
+            derrotas:4,
+            golsproprio:79,
+            golscontra:21
+        }, {
+            nome: "Tottenhan",
+            vitorias: 20,
+            empates: 1,
+            derrotas:9,
+            golsproprio:57,
+            golscontra:32
+        }, {
+            nome: "Arsenal",
+            vitorias: 18,
+            empates: 6,
+            derrotas:6,
+            golsproprio:63,
+            golscontra:39
+        }, {
+            nome: "Manchester United",
+            vitorias: 17,
+            empates: 7,
+            derrotas:6,
+            golsproprio:58,
+            golscontra:40
+        }, {
+            nome: "Chelsea",
+            vitorias: 17,
+            empates: 6,
+            derrotas:7,
+            golsproprio:50,
+            golscontra:33
+        }];
+
+        //1. Lista somente os times cujas vitórias seja maior ou igual que 20
+        console.log('Tarefa 1');
+
+        let timesbons = times.filter(time =>{
+            return time.vitorias === 20 || time.vitorias > 20 ;
+        });
+        console.log(timesbons);
+        //2. Traga somente os nomes dos times;
+        console.log('Tarefa 2');
+
+        let justname = times.map(times => times.nome);
+        console.log(justname);
+        //3. Adicione mais um time chamado Wolves, vitorias 12, empates 8, derrotas 10, gols proprios 38, golscontras 36;
+        console.log('tarefa 3');
+        let NovoTime = times.push({
+            nome : 'Wolves',
+            vitorias : 12,
+            empates : 8,
+            derrotas : 10,
+            golsproprio : 38,
+            golscontra : 36
+        });
+        console.log(times);
+        //4. Mostre o nome e a quantidade de jogos(vitorias, empates e derrotas), quantidade de vitorias, empates e derrotas de um time
+        console.log('tarefa 4');
+        let InformacoesCadaTime = times.map(times =>{
+
+            return{
+                nome : times.nome,
+                quantidadeDeJogos: times.vitorias + times.derrotas + times.empates,
+                vitorias : times.vitorias,
+                derrotas : times.derrotas,
+                empates : times.empates
+            }
+        }
+        );
+        
+        console.log(InformacoesCadaTime);
+        //5. Informe a quantidade de jogos do campeonato;
+        console.log('tarefa 5');
+       
+        let totaljogos = times.reduce((soma, time) => {
+            return soma + (parseInt(time.vitorias) + parseInt(time.derrotas) + parseInt(time.empates));
+        }, 0);
+        console.log('Quantidade total de jogos: ',totaljogos);
+    </script>
+
+</body>
+
+</html>
